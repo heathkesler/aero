@@ -71,6 +71,7 @@
 							org.xmlpull.mxp1,
 							com.aeroflex.smx.process_invoke,
 							com.aeroflex.smx.job_service,
+							com.aeroflex.smx.aeroflex_pojo_service,
 							*  
 						</Import-Package>
 						<Private-Package>com.aeroflex.smx.job_workflow</Private-Package>

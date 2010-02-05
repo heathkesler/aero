@@ -15,7 +15,7 @@
 	   http://www.springframework.org/schema/osgi-compendium http://www.springframework.org/schema/osgi-compendium/spring-osgi-compendium.xsd">
 
 
-	<bean id="processInvoke" class="com.aeroflex.smx.ProcessInvoke">
+	<bean id="processInvoke" class="com.aeroflex.smx.process_invoke.ProcessInvoke">
 		<property name="waitTime" value="${wait.time}" />
 	</bean>
 

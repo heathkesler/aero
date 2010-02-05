@@ -55,8 +55,9 @@
 				<configuration>
 					<instructions>
 						<Bundle-SymbolicName>${pom.artifactId}</Bundle-SymbolicName>
-						<Import-Package>*,org.apache.camel.osgi</Import-Package>
-						<Private-Package>com.aeroflex.smx</Private-Package>
+						<Import-Package>org.springframework.beans.factory.config,
+                            *</Import-Package>
+						<Private-Package>com.aeroflex.smx.job_service</Private-Package>
 					</instructions>
 				</configuration>
 			</plugin>

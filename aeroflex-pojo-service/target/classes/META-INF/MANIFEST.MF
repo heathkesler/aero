@@ -8,10 +8,10 @@ Created-By: Apache Maven Bundle Plugin
 DynamicImport-Package: *
 Build-Jdk: 1.6.0_15
 Bundle-Version: 1.0.0.SNAPSHOT
-Bnd-LastModified: 1265339951819
+Bnd-LastModified: 1265400786974
 Bundle-ManifestVersion: 2
-Import-Package: com.aeroflex.smx,com.aeroflex.smx.aeroflex_pojo_servic
- e,javax.jms;version="1.1",org.apache.activemq;version="5.3",org.sprin
- gframework.beans.factory;version="2.5"
+Import-Package: com.aeroflex.smx.aeroflex_pojo_service,javax.jms;versi
+ on="1.1",org.apache.activemq;version="5.3",org.springframework.beans.
+ factory;version="2.5"
 Bundle-SymbolicName: com.aeroflex.smx.aeroflex-pojo-service
 

@@ -15,7 +15,7 @@
     </camelContext>
     
     <bean id="aeroflexHelperBean" class="com.aeroflex.smx.job_workflow.util.AeroflexHelperBean">
-    	<property name="aeroFlexPojoService" ref="aeroflexPojoService"/>
+    	<property name="aeroflexPojoService" ref="aeroflexPojoService"/>
     </bean>
     
     <bean id="jobWorkflowServiceBean" class="com.aeroflex.smx.job_workflow.JobWorkflowImpl">

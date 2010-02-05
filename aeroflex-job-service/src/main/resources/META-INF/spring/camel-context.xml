@@ -18,7 +18,7 @@
 	<camel-osgi:camelContext xmlns="http://activemq.apache.org/camel/schema/spring">
         <route>
             <from uri="jms:queue:aeroflex?maxMessagesPerTask=-1" />
-           	<bean ref="JobService" method="loadFile" />
+           	<bean ref="jobService" method="loadFile" />
             <to uri="log:ExampleRouter" />
         </route>
     </camel-osgi:camelContext>
@@ -31,7 +31,7 @@
         </property>
     </bean>
 
-	<bean id="JobService" class="JobService">
+	<bean id="jobService" class="com.aeroflex.smx.job_service.JobService">
 		<property name="processInvoke" ref="osgiProcessInvoke"/>
 	</bean>
 
@@ -42,6 +42,6 @@
 
 	<ctx:property-placeholder properties-ref="aeroProps" />
 
-	<osgi:reference id="osgiProcessInvoke" bean-name="processInvoke" interface="com.aeroflex.smx.ProcessInvoke"/> 
+	<osgi:reference id="osgiProcessInvoke" bean-name="processInvoke" interface="com.aeroflex.smx.process_invoke.ProcessInvoke"/> 
 
 </beans>

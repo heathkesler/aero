@@ -1,0 +1,31 @@
+Manifest-Version: 1.0
+Export-Package: com.aeroflex.smx.job_workflow;uses:="org.apache.log4j,
+ com.aeroflex.smx.job_workflow.parser,org.apache.camel,org.springframe
+ work.beans.factory",com.aeroflex.smx.job_workflow.parser;uses:="com.t
+ houghtworks.xstream.io,com.thoughtworks.xstream.io.xml,com.thoughtwor
+ ks.xstream",com.aeroflex.smx.job_workflow.routes;uses:="org.apache.ca
+ mel,com.aeroflex.smx.job_workflow.parser,com.thoughtworks.xstream.io,
+ com.thoughtworks.xstream,com.thoughtworks.xstream.io.json,org.apache.
+ camel.builder,org.apache.camel.model",com.aeroflex.smx.job_workflow.u
+ til;uses:="com.aeroflex.smx.aeroflex_pojo_service"
+Built-By: heathkesler
+Build-Jdk: 1.6.0_15
+Bundle-Version: 1.0.0.SNAPSHOT
+Tool: Bnd-0.0.357
+Bundle-Name: Aeroflex Services :: Job Camel Workflow
+Bnd-LastModified: 1265400787971
+Created-By: Apache Maven Bundle Plugin
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: aeroflex-job-workflow
+Import-Package: com.aeroflex.smx.aeroflex_pojo_service,com.aeroflex.sm
+ x.job_service,com.aeroflex.smx.job_workflow,com.aeroflex.smx.job_work
+ flow.parser,com.aeroflex.smx.job_workflow.routes,com.aeroflex.smx.job
+ _workflow.util,com.aeroflex.smx.process_invoke,com.thoughtworks.xstre
+ am;version="1.3",com.thoughtworks.xstream.io;version="1.3",com.though
+ tworks.xstream.io.json;version="1.3",com.thoughtworks.xstream.io.xml;
+ version="1.3",org.apache.camel;version="1.6",org.apache.camel.builder
+ ;version="1.6",org.apache.camel.model;version="1.6",org.apache.camel.
+ osgi,org.apache.log4j,org.springframework.beans.factory;version="2.5"
+ ,org.springframework.beans.factory.config;version="2.5",org.xmlpull.m
+ xp1;version="1.1"
+
