@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:camel-osgi="http://activemq.apache.org/camel/schema/osgi" 
+    xmlns:osgi="http://www.springframework.org/schema/osgi" 
+	xmlns:osgix="http://www.springframework.org/schema/osgi-compendium"
+	xmlns:ctx="http://www.springframework.org/schema/context"
+
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+       http://activemq.apache.org/camel/schema/spring http://activemq.apache.org/camel/schema/spring/camel-spring.xsd
+       http://activemq.apache.org/camel/schema/osgi http://activemq.apache.org/camel/schema/osgi/camel-osgi.xsd
+       http://www.springframework.org/schema/osgi  http://www.springframework.org/schema/osgi/spring-osgi.xsd
+  	   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+	   http://www.springframework.org/schema/osgi-compendium http://www.springframework.org/schema/osgi-compendium/spring-osgi-compendium.xsd">
+
+	<camel-osgi:camelContext xmlns="http://activemq.apache.org/camel/schema/spring">
+        <route>
+            <from uri="jms:queue:aeroflex?maxMessagesPerTask=-1" />
+           	<bean ref="JobService" method="loadFile" />
+            <to uri="log:ExampleRouter" />
+        </route>
+    </camel-osgi:camelContext>
+    
+    <bean id="jms" class="org.apache.camel.component.jms.JmsComponent">
+        <property name="connectionFactory">
+            <bean class="org.apache.activemq.ActiveMQConnectionFactory">
+                <property name="brokerURL" value="tcp://localhost:61616" />
+            </bean>
+        </property>
+    </bean>
+
+	<bean id="JobService" class="JobService">
+		<property name="processInvoke" ref="osgiProcessInvoke"/>
+	</bean>
+
+	<osgix:cm-properties id="aeroProps" persistent-id="com.aeroflex.smx">
+		<prop key="wait.time">30000</prop>
+		<prop key="verbose">false</prop>
+	</osgix:cm-properties>
+
+	<ctx:property-placeholder properties-ref="aeroProps" />
+
+	<osgi:reference id="osgiProcessInvoke" bean-name="processInvoke" interface="com.aeroflex.smx.ProcessInvoke"/> 
+
+</beans>
