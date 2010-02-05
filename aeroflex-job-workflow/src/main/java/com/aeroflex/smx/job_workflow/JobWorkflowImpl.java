@@ -38,7 +38,7 @@ public class JobWorkflowImpl implements InitializingBean, DisposableBean, JobWor
 	}
 
 	public void afterPropertiesSet() throws Exception {
-		LOG.info("Initiated Job Workflow");
+		LOG.info(">>>> [INITIATED] Job Workflow");
 	}
 
 	public void destroy() throws Exception {

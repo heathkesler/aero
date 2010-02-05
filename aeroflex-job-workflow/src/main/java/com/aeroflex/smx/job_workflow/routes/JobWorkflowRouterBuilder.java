@@ -16,14 +16,13 @@ public class JobWorkflowRouterBuilder extends RouteBuilder {
 
 	@Override
 	public void configure() throws Exception {
-		from("direct:loadfile").multicast().to("seda:aff", "seda:afx");
-		from("seda:aff").process(new FileProcessor()).to("bean:jobService?method=loadFile").process(new JSONProcessor()).to("seda:aggregator");
-		from("seda:aggregator").aggregator().header(JobWorkflow.REQUEST_HEADER).process(new AeroflexPojoProcessor()).to("bean:mainframeHelperBean?method=execute");
+		from("file://inbox/").convertBodyTo(String.class).to("bean:aeroflexHelperBean?method=execute");
 	}
 
 	class FileProcessor implements Processor {
 		public void process(Exchange exchange) throws Exception {
 			// This is to extract the payload and change the input type
+			
 			SampleFile cs = (SampleFile) exchange.getIn().getBody();
 			String fileName = cs.getFileName();
 			exchange.getIn().setBody(fileName);

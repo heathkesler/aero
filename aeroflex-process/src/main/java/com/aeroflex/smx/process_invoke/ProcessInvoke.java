@@ -34,7 +34,7 @@ public class ProcessInvoke implements InitializingBean, DisposableBean {
 	}
 
 	public Object execute(Object body) {
-        String answer = "Execute external command with a wait time:  " + waitTime;
+        String answer = ">>>> [METHOD] ProcessInvoke.execute() - waitTime: " + waitTime;
         if (isVerbose()){
         	System.out.println(answer);
         }

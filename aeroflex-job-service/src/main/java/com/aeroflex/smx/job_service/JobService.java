@@ -25,13 +25,13 @@ public class JobService implements InitializingBean, DisposableBean  {
     
     public void loadFile(Object payload) {
     	
-    	LOG.info("In Job Service - loadFile()");
+    	LOG.info(">>>> [METHOD] JobService.loadFile()");
         List<String> list = (List<String>) payload;
         String fileName = list.get(0);
         String data = list.get(1);
         if (verbose) {
             System.out.println(">>>> [File]: " + fileName + " || [Data]: " + data);
-            System.out.println(">>>> Send file to execute");
+            System.out.println(">>>> [SEND]: file to execute");
             processInvoke.execute(fileName);
             
         }
@@ -48,7 +48,7 @@ public class JobService implements InitializingBean, DisposableBean  {
     }
 
 	public void afterPropertiesSet() throws Exception {
-		LOG.info("Initialized Job Service");
+		LOG.info(">>>>  [INITIALIZED] Job Service");
 	}
 
 	public void destroy() throws Exception {

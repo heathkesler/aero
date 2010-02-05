@@ -7,7 +7,7 @@ import com.thoughtworks.xstream.io.xml.DomDriver;
 public class Parser {
     public SampleFile parse(String payload){
         XStream xstream = new XStream(new DomDriver());
-        xstream.alias("sample-file", SampleFile.class);
+        xstream.alias("file", SampleFile.class);
         
         SampleFile cs = (SampleFile)xstream.fromXML(payload);
 

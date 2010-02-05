@@ -7,7 +7,7 @@ Build-Jdk: 1.6.0_15
 Bundle-Version: 1.0.0.SNAPSHOT
 Tool: Bnd-0.0.357
 Bundle-Name: Aeroflex Services :: Job Service
-Bnd-LastModified: 1265400785208
+Bnd-LastModified: 1265413417925
 Created-By: Apache Maven Bundle Plugin
 Bundle-ManifestVersion: 2
 Bundle-SymbolicName: aeroflex-job-service

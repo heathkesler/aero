@@ -42,7 +42,7 @@ public class AeroflexPojoService implements InitializingBean, DisposableBean {
     private AeroflexPojoService aeroflexPojoService;
 
     public String sendMessage(String filename, String payload) {
-        LOG.info("sending message from AeroflexPojoService");
+        LOG.info(">>>> [SENDING] message from AeroflexPojoService");
 
         List<String> params = new ArrayList<String>();
         params.add(filename);
@@ -70,7 +70,7 @@ public class AeroflexPojoService implements InitializingBean, DisposableBean {
                 ObjectMessage message = session.createObjectMessage();
                 // message.setObject("Message timestamp: " +
                 // System.currentTimeMillis());
-                LOG.info("sending message");
+                LOG.info(">>>> sending message");
 
                 message.setObject((Serializable) params);
                 producer.send(message);
@@ -86,18 +86,18 @@ public class AeroflexPojoService implements InitializingBean, DisposableBean {
             e.printStackTrace();
         }
 
-        LOG.info(".call Thread " + Thread.currentThread() + " done");
+        LOG.info(">>>>  [CALL] Thread " + Thread.currentThread() + " done");
 
         return filename;
 
     }
 
     public void afterPropertiesSet() throws Exception {
-        LOG.info("INITIALIZING -  Aeroflex Pojo Service");
+        LOG.info("[INITIALIZING] -  Aeroflex Pojo Service");
     }
 
     public void destroy() throws Exception {
-    	LOG.info("STOPPING     -  Aeroflex Pojo Service");
+    	LOG.info("[STOPPING]     -  Aeroflex Pojo Service");
     }
 
 }
