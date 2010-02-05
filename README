@@ -1,0 +1,5 @@
+added 4 sample projects that explore the use of service mix.  
+
+from the parent level pom.xml run: mvn clean install
+
+this will build all four of the projects.  
